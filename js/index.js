@@ -253,6 +253,8 @@ $(document).ready(function () {
         $("#direccion").val("");
         $("#telefono").val("");
         $("#estrellas").val("");
+        $("#lat").val("");
+        $("#lng").val("");
         limpiarMarcadores();
         ocultarRutas();
         cambiarPagina("main");
