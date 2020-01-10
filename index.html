@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <title>Agenda Hotelera - Robert Bass - Diseño y Programación de Software</title>
+    <link rel="stylesheet" href="jqmobile/jquery.mobile-1.4.5.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/jquery-1.11.1.js"></script>
+    <script src="jqmobile/jquery.mobile-1.4.5.js"></script>
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGKXKQx0fyVHCIkEof3RiyHsWSRhWQ6vY"></script>
+    <script src="js/index.js"></script>
+
+</head>
+
+<body>
+
+    // Pagina Inicial
+    <div data-role="page" id="main">
+        <div data-role="header" data-theme="b">
+            <h1>Agenda Hotelera</h1>
+        </div>
+
+        <div data-role="content">
+            <a id="registrar" class="ui-btn ui-icon-plus ui-btn-icon-left ui-shadow-icon">Registrar Hotel</a>
+            <a id="verHoteles" class="ui-btn ui-icon-bars ui-btn-icon-left ui-shadow-icon">Ver Hoteles Registrados</a>
+        </div>
+
+        <div data-role="footer" data-theme="b">
+            <p align="center" style="font-size: 10px"><img src="img/RB003b.png" alt="robertbass"
+                    style="align-content: center"><br>Desarrollado por: Robert-Bass - Diseño y Programación®</p>
+        </div>
+    </div>
+
+
+
+    // Formulario de Registro
+    <div data-role="page" id="page2">
+        <div data-role="header" data-theme="b">
+            <h1>Formulario de Registro</h1>
+        </div>
+
+        <div data-role="content">
+            <form>
+                <div class="ui-field-contain">
+                    <label for="ID">ID:</label>
+                    <input type="text" name="ID" id="ID" class="ui-corner-all ui-shadow ui-overlay-shadow" disabled><br>
+                </div>
+
+                <div class="ui-field-contain">
+                    <label for="nombre">Nombre del Hotel:</label>
+                    <input type="text" name="nombre" id="nombre" class="ui-corner-all ui-shadow ui-overlay-shadow" placeholder="Ingrese el nombre del Hotel a buscar"><br>
+                </div>
+
+                <div class="ui-field-contain">
+                    <a id="buscar" class="ui-btn ui-icon-search ui-btn-icon-left ui-shadow-icon">Buscar Hotel</a>
+                </div>
+
+                <div class="ui-field-contain">
+                    <label for="ciudad">Ciudad:</label>
+                    <input type="text" class="ui-corner-all ui-shadow ui-overlay-shadow" name="ciudad" id="ciudad">
+                </div>
+
+                <div class="ui-field-contain">
+                        <label for="direccion">Dirección:</label>
+                        <input type="text" class="ui-corner-all ui-shadow ui-overlay-shadow" name="direccion" id="direccion">
+                    </div>
+
+                <div class="ui-field-contain">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="text" class="ui-corner-all ui-shadow ui-overlay-shadow" name="telefono" id="telefono">
+                </div>
+
+                <div class="ui-field-contain">
+                    <label for="estrellas">Estrellas:</label>
+                    <input type="text" class="ui-corner-all ui-shadow ui-overlay-shadow"     name="estrellas" id="estrellas">
+                </div>
+
+                <div>
+                    <label for="mapa">Ubicación:</label>
+                    <div id="mapa">
+
+                    </div>
+                </div>
+
+                <div class="ui-field-contain">
+                    <input type="hidden" name="lat" id="lat">
+                </div>
+
+                <div class="ui-field-contain">
+                    <input type="hidden" name="lng" id="lng">
+                </div>
+
+                <a id="btnRegistrar" class="ui-btn ui-icon-plus ui-btn-icon-left ui-shadow-icon">Registrar</a>
+                <a class="ui-btn ui-icon-home ui-btn-icon-left volver ">Regresar</a>
+            </form>
+        </div>
+
+        <div data-role="footer" data-theme="b">
+            <p align="center" style="font-size: 10px"><img src="img/RB003b.png" alt="robertbass"
+                    style="align-content: center"><br>Desarrollado por: Robert-Bass - Diseño y Programación®</p>
+        </div>
+    </div>
+
+
+    // Lista de Hoteles
+    <div data-role="page" id="page3">
+        <div data-role="header" data-theme="b">
+            <h1>Hoteles Registrados</h1>
+        </div>
+
+        <div data-role="content">
+            <div class="ui-fiel-contain" id="lista">
+
+            </div>
+
+            <br>
+            <br>
+            <hr>
+            <hr>
+            <hr>
+
+            <a class="ui-btn ui-icon-home ui-btn-icon-left volver">Regresar</a>
+            <a id="borrar" class="ui-btn ui-icon-delete ui-btn-icon-left ui-shadow-icon">Borrar Datos</a>
+
+        </div>
+
+        <div data-role="footer" data-theme="b">
+            <p align="center" style="font-size: 10px"><img src="img/RB003b.png" alt="robertbass"
+                    style="align-content: center"><br>Desarrollado por: Robert-Bass - Diseño y Programación®</p>
+        </div>
+    </div>
+
+
+
+    // Datos del Hotel
+    <div data-role="page" id="page4">
+        <div data-role="header" data-theme="b">
+            <h1>Datos del Hotel</h1>
+        </div>
+
+        <div data-role="content">
+            <form>
+                <div class="ui-field-contain">
+                    <label for="ID2">ID:</label>
+                    <input type="text" name="ID2" id="ID2" class="ui-corner-all ui-shadow ui-overlay-shadow" disabled><br>
+                </div>
+
+                <div class="ui-field-contain">
+                    <label for="nombre2">Nombre del Hotel:</label>
+                    <input type="text" name="nombre2" id="nombre2" class="ui-corner-all ui-shadow ui-overlay-shadow" disabled><br>
+                </div>
+
+                <div class="ui-field-contain">
+                    <label for="ciudad2">Ciudad:</label>
+                    <input type="text" class="ui-corner-all ui-shadow ui-overlay-shadow" name="ciudad2" id="ciudad2" disabled>
+                </div>
+
+                <div class="ui-field-contain">
+                        <label for="direccion2">Dirección:</label>
+                        <input type="text" class="ui-corner-all ui-shadow ui-overlay-shadow" name="direccion2" id="direccion2" disabled>
+                    </div>
+
+                <div class="ui-field-contain">
+                    <label for="telefono2">Teléfono:</label>
+                    <input type="text" class="ui-corner-all ui-shadow ui-overlay-shadow" name="telefono2" id="telefono2" disabled>
+                </div>
+
+                <div class="ui-field-contain">
+                    <label for="estrellas2">Estrellas:</label>
+                    <input type="text" class="ui-corner-all ui-shadow ui-overlay-shadow" name="estrellas2" id="estrellas2" disabled>
+                </div>
+
+                <div>
+                    <label for="mapa2">Ubicación:</label>
+                    <div id="mapa2">
+
+                    </div>
+                </div>
+
+                <div class="ui-field-contain">
+                    <input type="hidden" name="lat2" id="lat2" disabled>
+                </div>
+
+                <div class="ui-field-contain">
+                    <input type="hidden" name="lng2" id="lng2" disabled>
+                </div>
+
+            </form>
+
+            <a id="volver" class="ui-btn ui-icon-home ui-btn-icon-left">Regresar a la Lista</a>
+
+        </div>
+
+        <div data-role="footer" data-theme="b">
+            <p align="center" style="font-size: 10px"><img src="img/RB003b.png" alt="robertbass"
+                    style="align-content: center"><br>Desarrollado por: Robert-Bass - Diseño y Programación®</p>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
